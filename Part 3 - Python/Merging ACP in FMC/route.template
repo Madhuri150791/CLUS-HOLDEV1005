@@ -1,0 +1,10 @@
+Value Required targetIP (\d+\.\d+\.\d+\.\d+)
+Value Required Routetype (\S+)
+Value Required egressIP (\d+\.\d+\.\d+\.\d+)
+Value Required intname (\S+)
+
+
+Start
+^.*Routing entry for "${targetIP}" \s+
+  ^\s+Known via "${Routetype}", \S+ \d+, metric \d+
+  ^.*  "{egressIP}", via "{intname}"

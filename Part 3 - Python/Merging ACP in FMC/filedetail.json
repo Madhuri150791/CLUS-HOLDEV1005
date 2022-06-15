@@ -1,0 +1,9 @@
+{
+  "getfile": "accessrule-production.txt",
+  "filterfile": "filterrule-production.txt",
+  "policyformat": "policyformat-production.json",
+  "details": "details.json",
+  "nooutput": "Rulesnooutput.txt",
+  "finalfilter": "InternetSpecific-production.txt",
+  "internetSpecific": "finalfilter-production.txt"
+}
