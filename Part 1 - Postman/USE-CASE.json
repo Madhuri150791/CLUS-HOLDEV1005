@@ -1,357 +1,245 @@
 {
-  "info": {
-    "_postman_id": "51193eed-2537-4a5f-8395-17e59af75792",
-    "name": "FMC/FTD Use Case",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "10324699"
-  },
-  "item": [
-    {
-      "name": "To Get the access token(DOmain UUiD)",
-      "request": {
-        "auth": {
-          "type": "basic",
-          "basic": [
-            {
-              "key": "password",
-              "value": "cisco!123",
-              "type": "string"
-            },
-            {
-              "key": "username",
-              "value": "admin",
-              "type": "string"
-            }
-          ]
-        },
-        "method": "POST",
-        "header": [],
-        "url": {
-          "raw": "https://10.122.189.220//api/fmc_platform/v1/auth/generatetoken",
-          "protocol": "https",
-          "host": [
-            "10",
-            "122",
-            "189",
-            "220"
-          ],
-          "path": [
-            "",
-            "api",
-            "fmc_platform",
-            "v1",
-            "auth",
-            "generatetoken"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Refresh Token",
-      "request": {
-        "auth": {
-          "type": "basic",
-          "basic": [
-            {
-              "key": "password",
-              "value": "Cisco@123",
-              "type": "string"
-            },
-            {
-              "key": "username",
-              "value": "admin",
-              "type": "string"
-            }
-          ]
-        },
-        "method": "POST",
-        "header": [],
-        "url": {
-          "raw": "https://10.105.197.168/api/fmc_platform/v1/auth/refreshtoken",
-          "protocol": "https",
-          "host": [
-            "10",
-            "105",
-            "197",
-            "168"
-          ],
-          "path": [
-            "api",
-            "fmc_platform",
-            "v1",
-            "auth",
-            "refreshtoken"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Get Device Records",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "X-auth-access-token",
-            "value": "076dc086-bd07-4e6c-8c60-48b590c33371",
-            "type": "text"
-          }
-        ],
-        "url": {
-          "raw": "https://10.122.189.217/api/fmc_config/v1/domain/e276abec-e0f2-11e3-8169-6d9ed49b625f/devices/devicerecords",
-          "protocol": "https",
-          "host": [
-            "10",
-            "122",
-            "189",
-            "217"
-          ],
-          "path": [
-            "api",
-            "fmc_config",
-            "v1",
-            "domain",
-            "e276abec-e0f2-11e3-8169-6d9ed49b625f",
-            "devices",
-            "devicerecords"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Get Policy Assignment Detail",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "X-auth-access-token",
-            "value": "f8279de4-c00a-4bed-b7b4-fb46813b7501",
-            "type": "text"
-          }
-        ],
-        "url": {
-          "raw": "https://10.105.197.168/api/fmc_config/v1/domain/e276abec-e0f2-11e3-8169-6d9ed49b625f/assignment/policyassignments",
-          "protocol": "https",
-          "host": [
-            "10",
-            "105",
-            "197",
-            "168"
-          ],
-          "path": [
-            "api",
-            "fmc_config",
-            "v1",
-            "domain",
-            "e276abec-e0f2-11e3-8169-6d9ed49b625f",
-            "assignment",
-            "policyassignments"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "List all hosts configured",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "X-auth-access-token",
-            "value": "15e4a623-9e88-4e91-ad6a-55ca2f7a7c3a",
-            "type": "text"
-          }
-        ],
-        "url": {
-          "raw": "https://10.122.189.217/api/fmc_config/v1/domain/e276abec-e0f2-11e3-8169-6d9ed49b625f/policy/accesspolicies",
-          "protocol": "https",
-          "host": [
-            "10",
-            "122",
-            "189",
-            "217"
-          ],
-          "path": [
-            "api",
-            "fmc_config",
-            "v1",
-            "domain",
-            "e276abec-e0f2-11e3-8169-6d9ed49b625f",
-            "policy",
-            "accesspolicies"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "https://10.66.48.198:9060/ers/config/networkdevice/bulk/submit",
-      "request": {
-        "auth": {
-          "type": "basic",
-          "basic": [
-            {
-              "key": "password",
-              "value": "C1sc0123",
-              "type": "string"
-            },
-            {
-              "key": "username",
-              "value": "admin",
-              "type": "string"
-            }
-          ]
-        },
-        "method": "PUT",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json",
-            "type": "text"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "\n{\n  \"NetworkDeviceBulkRequest\" : {\n    \"operationType\" : \"create\",\n    \"resourceMediaType\" : {\n  \"NetworkDevice\" : {\n    \"name\" : \"networkDevice1\",\n    \"description\" : \"example nd\",\n    \"authenticationSettings\" : {\n      \"radiusSharedSecret\" : \"aaa\",\n      \"enableKeyWrap\" : true,\n      \"dtlsRequired\" : true,\n      \"keyEncryptionKey\" : \"1234567890123456\",\n      \"messageAuthenticatorCodeKey\" : \"12345678901234567890\",\n      \"keyInputFormat\" : \"ASCII\"\n    },\n    \"tacacsSettings\" : {\n      \"sharedSecret\" : \"aaa\",\n      \"connectModeOptions\" : \"ON_LEGACY\"\n    },\n    \"profileName\" : \"Cisco\",\n    \"coaPort\" : 1700,\n    \"dtlsDnsName\" : \"ISE213.il.com\",\n    \"NetworkDeviceIPList\" : [ {\n      \"ipaddress\" : \"1.1.1.1\",\n      \"mask\" : 32\n    } ],\n    \"NetworkDeviceGroupList\" : [ \"Location#All Locations\", \"Device Type#All Device Types\" ]\n  }\n    ]\n  }\n}"
-        },
-        "url": {
-          "raw": "https://10.66.48.198:9060/ers/config/networkdevice/bulk/submit",
-          "protocol": "https",
-          "host": [
-            "10",
-            "66",
-            "48",
-            "198"
-          ],
-          "port": "9060",
-          "path": [
-            "ers",
-            "config",
-            "networkdevice",
-            "bulk",
-            "submit"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": " https://10.122.189.217/api/fmc_config/v1/domain/e276abec-e0f2-11e3-8169-6d9ed49b625f/policy/accesspolicies/00505698-9AF6-0ed3-0000-017179873380/accessrules",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "X-auth-access-token",
-            "value": "9ed4cda1-a446-4255-9a4a-38f753cdc2d2",
-            "type": "text"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n        \"action\": \"BLOCK\",\n        \"enabled\": false,\n        \"type\": \"AccessRule\",\n        \"name\": \"Deny All\",\n        \"sendEventsToFMC\": true,\n        \"logFiles\": false,\n        \"logBegin\": false,\n        \"logEnd\": true\n\n    }",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "https://10.122.189.217/api/fmc_config/v1/domain/e276abec-e0f2-11e3-8169-6d9ed49b625f/policy/accesspolicies/00505698-9AF6-0ed3-0000-017179873380/accessrules",
-          "protocol": "https",
-          "host": [
-            "10",
-            "122",
-            "189",
-            "217"
-          ],
-          "path": [
-            "api",
-            "fmc_config",
-            "v1",
-            "domain",
-            "e276abec-e0f2-11e3-8169-6d9ed49b625f",
-            "policy",
-            "accesspolicies",
-            "00505698-9AF6-0ed3-0000-017179873380",
-            "accessrules"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "https://wwwin-github.cisco.com/api/v3/orgs/CX-Security/repos",
-      "request": {
-        "auth": {
-          "type": "bearer",
-          "bearer": [
-            {
-              "key": "token",
-              "value": "8904b18536091731f3f385f16b37337a5bc0e6b3",
-              "type": "string"
-            }
-          ]
-        },
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "https://wwwin-github.cisco.com/api/v3/orgs/CX-Security/repos",
-          "protocol": "https",
-          "host": [
-            "wwwin-github",
-            "cisco",
-            "com"
-          ],
-          "path": [
-            "api",
-            "v3",
-            "orgs",
-            "CX-Security",
-            "repos"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "https://scripts.cisco.com/api/v2/auth/login",
-      "request": {
-        "auth": {
-          "type": "basic",
-          "basic": [
-            {
-              "key": "password",
-              "value": "Cisco!23",
-              "type": "string"
-            },
-            {
-              "key": "username",
-              "value": "code_rec.gen",
-              "type": "string"
-            }
-          ]
-        },
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "https://scripts.cisco.com/api/v2/auth/login",
-          "protocol": "https",
-          "host": [
-            "scripts",
-            "cisco",
-            "com"
-          ],
-          "path": [
-            "api",
-            "v2",
-            "auth",
-            "login"
-          ]
-        }
-      },
-      "response": []
-    }
-  ]
+	"info": {
+		"_postman_id": "cd9e49e8-c108-4871-97d5-8cedcd24a5d6",
+		"name": "FMC/FTD Use Case",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10324699"
+	},
+	"item": [
+		{
+			"name": "To Get the access token(DOmain UUiD)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "cisco!123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://10.122.189.220/api/fmc_platform/v1/auth/generatetoken",
+					"protocol": "https",
+					"host": [
+						"10",
+						"122",
+						"189",
+						"220"
+					],
+					"path": [
+						"api",
+						"fmc_platform",
+						"v1",
+						"auth",
+						"generatetoken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Cisco@123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://10.105.197.168/api/fmc_platform/v1/auth/refreshtoken",
+					"protocol": "https",
+					"host": [
+						"10",
+						"105",
+						"197",
+						"168"
+					],
+					"path": [
+						"api",
+						"fmc_platform",
+						"v1",
+						"auth",
+						"refreshtoken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Device Records",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-auth-access-token",
+						"value": "076dc086-bd07-4e6c-8c60-48b590c33371",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://10.122.189.217/api/fmc_config/v1/domain/e276abec-e0f2-11e3-8169-6d9ed49b625f/devices/devicerecords",
+					"protocol": "https",
+					"host": [
+						"10",
+						"122",
+						"189",
+						"217"
+					],
+					"path": [
+						"api",
+						"fmc_config",
+						"v1",
+						"domain",
+						"e276abec-e0f2-11e3-8169-6d9ed49b625f",
+						"devices",
+						"devicerecords"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Policy Assignment Detail",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-auth-access-token",
+						"value": "f8279de4-c00a-4bed-b7b4-fb46813b7501",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://10.105.197.168/api/fmc_config/v1/domain/e276abec-e0f2-11e3-8169-6d9ed49b625f/assignment/policyassignments",
+					"protocol": "https",
+					"host": [
+						"10",
+						"105",
+						"197",
+						"168"
+					],
+					"path": [
+						"api",
+						"fmc_config",
+						"v1",
+						"domain",
+						"e276abec-e0f2-11e3-8169-6d9ed49b625f",
+						"assignment",
+						"policyassignments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Access Rule in ACP",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-auth-access-token",
+						"value": "9ed4cda1-a446-4255-9a4a-38f753cdc2d2",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"action\": \"BLOCK\",\n        \"enabled\": false,\n        \"type\": \"AccessRule\",\n        \"name\": \"Deny All\",\n        \"sendEventsToFMC\": true,\n        \"logFiles\": false,\n        \"logBegin\": false,\n        \"logEnd\": true\n\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://10.122.189.217/api/fmc_config/v1/domain/e276abec-e0f2-11e3-8169-6d9ed49b625f/policy/accesspolicies/00505698-9AF6-0ed3-0000-017179873380/accessrules",
+					"protocol": "https",
+					"host": [
+						"10",
+						"122",
+						"189",
+						"217"
+					],
+					"path": [
+						"api",
+						"fmc_config",
+						"v1",
+						"domain",
+						"e276abec-e0f2-11e3-8169-6d9ed49b625f",
+						"policy",
+						"accesspolicies",
+						"00505698-9AF6-0ed3-0000-017179873380",
+						"accessrules"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create ACP",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-auth-access-token",
+						"value": "9ed4cda1-a446-4255-9a4a-38f753cdc2d2",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"type\": \"AccessPolicy\",\n    \"name\": \"Test123\",\n    \"defaultAction\": {\"action\": \"BLOCK\"}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://10.122.189.217/api/fmc_config/v1/domain/e276abec-e0f2-11e3-8169-6d9ed49b625f/policy/accesspolicies",
+					"protocol": "https",
+					"host": [
+						"10",
+						"122",
+						"189",
+						"217"
+					],
+					"path": [
+						"api",
+						"fmc_config",
+						"v1",
+						"domain",
+						"e276abec-e0f2-11e3-8169-6d9ed49b625f",
+						"policy",
+						"accesspolicies"
+					]
+				}
+			},
+			"response": []
+		}
+	]
 }
